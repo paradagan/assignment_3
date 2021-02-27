@@ -38,27 +38,28 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     rcpt_to_command = 'RCPT TO:<alice@example.com>'
     clientSocket.send(rcpt_to_command.encode())
-    
     # Fill in end
 
     # Send DATA command and print server response.
     # Fill in start
     data_command = 'DATA'
     clientSocket.send(data_command.encode())
-
     # Fill in end
 
     # Send message data.
     # Fill in start
-
+    clientSocket.send('Hi! How are you?'.encode())
     # Fill in end
 
     # Message ends with a single period.
     # Fill in start
+    clientSocket.send('.'.encode())
     # Fill in end
 
     # Send QUIT command and get server response.
     # Fill in start
+    quit_command = 'QUIT'
+    clientSocket.send(quit_command.encode())
     # Fill in end
 
 
